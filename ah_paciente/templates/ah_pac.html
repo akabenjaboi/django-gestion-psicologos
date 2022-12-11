@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<main class="container">
+    <div class="row">
+        <div class="col-md-4 offset-md-4">
+            <form method="POST" class="card card-body text-center">
+                {% csrf_token %}
+                <h3>Solicite una hora</h3>
+
+                <p>
+                    <label for = "psicologo">Psicologo</label>
+                    <select name = "psicologo" id = "psicologo">
+                        {% for psicologo in psicologos%}
+                        <option value = {{psicologo.id}}>{{psicologo.nombre}} {{psicologo.apellido}}</option>
+                        {% endfor %}
+                    </select>
+                    
+                </p>
+                <p>
+                    <label for = "paciente">Paciente</label>
+                    <select name = "paciente" id = "paciente">
+                        {% for paciente in pacientes %}
+                        <option value = {{paciente.id}}>{{paciente.nombre}} {{paciente.apellido}}</option>
+                        {% endfor %}
+                    </select>
+                </p>
+
+
+                <button>
+                    Save
+                </button>
+            </form>
+{% endblock %}

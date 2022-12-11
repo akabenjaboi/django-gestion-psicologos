@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<main class="container">
+    <div class="row">
+        <div class="col-md-4 offset-md-4">
+            <form method="POST" class="card card-body text-center">
+                <h3>Registre sus datos</h3>
+                {% csrf_token %}
+                <h6>rut sin puntos y con guion</h6>
+                {{form.as_p}}
+                <p>
+                <label for = "especialidad">Especialidad:</label>
+                <select name = "especialidad" id = "especialidad">
+                    <option value="cognitiva">Psicologia Cognitiva</option>
+                    <option value="clinica">Psicologia Clinica</option>
+                    <option value="pareja">Psicologia de pareja</option>
+                </select>
+                </p>
+                
+                <button>
+                    Save
+                </button>
+            </form>
+        </div>
+    </div>     
+    
+    
+</main>
+{% endblock %}
+

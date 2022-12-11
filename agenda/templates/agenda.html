@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<main class="container">
+    <div class="row">
+        <div class="col-md-4 offset-md-4">
+            
+            <form method = "POST" class="card card-body text-center">    
+                {% csrf_token %}
+
+                <h3>Crear agenda para un psicologo</h3>
+
+                <label for = "psicologo">Psicologo</label>
+                <select name = "psicologo" id = "psicologo">
+                    {% for psicologo in psicologos%}
+                    <option value = {{psicologo.id}}>{{psicologo.nombre}} {{psicologo.apellido}}</option>
+                    {% endfor %}
+                </select>
+                <p>
+                    Ingrese fecha en formato año-mes-día
+                </p>
+                {{form.as_p}}
+                <p>
+                    Ingrese las horas en formato 24hrs (ej: 16:15)
+                </p>
+                {{form_date.as_p}}
+                <button>
+                    Save
+                </button>
+
+            </form>
+        </div>
+    </div>
+</main>
+
+
+
+{% endblock %}

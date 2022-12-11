@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<main class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <form method="POST" class="card card-body text-center">
+                {% csrf_token %}
+                <h3>Seleccione el paciente a actualizar</h3>
+                <p>
+                    <label for = "paciente">Paciente</label>
+                    <select name = "paciente" id = "paciente">
+                        {% for paciente in pacientes %}
+                        <option value = {{paciente.id}}>{{paciente.nombre}} {{paciente.apellido}}</option>
+                        {% endfor %}
+                    </select>
+                </p>
+                {{form.as_p}}
+                <p>
+                <label for = "region">Region:</label>
+                <select name = "region" id = "region">
+                    <option value="1">Arica y Parinacota</option>
+                    <option value="2">Tarapacá</option>
+                    <option value="3">Antofagasta</option>
+                    <option value="4">Atacama</option>
+                    <option value="5">Coquimbo</option>
+                    <option value="6">Valparaíso</option>
+                    <option value="7">Región del Libertador Gral. Bernardo O'Higgins</option>
+                    <option value="8">Región del Maule</option>
+                    <option value="9">Región de Ñuble</option>
+                    <option value="10">Región del Biobío</option>
+                    <option value="11">Región de la Araucanía</option>
+                    <option value="12">Región de los Ríos</option>
+                    <option value="13">Región de los Lagos</option>
+                    <option value="14">Región Aísen del Gral. Carlos Ibáñez del Campo</option>
+                    <option value="15">Región de Magallanes y de la Antártica Chilena</option>
+                    <option value="16">Regíon Metropolitana de Santiago</option>
+                </select>
+                </p>
+                <button>
+                    Save
+                </button>
+            </form>  
+        </div>
+    </div>
+</main>
+
+
+{% endblock %}

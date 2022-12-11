@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<main class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h3>{{agenda.agenda_fecha}}</h3>
+
+        {% for psico in psicologos %}
+        {% if psico.id == psicologoID %}
+        <h3>El psicologo {{psico.nombre}} {{psico.apellido}} tiene los siguientes horarios disponibles</h3>    
+        {% endif %}
+        {% endfor %}
+
+        {% for agenda in agendas %}
+        <p>
+
+        </p>
+        <p>{{agenda.agenda_fecha}}
+
+        {% for x in horarios %}
+        {% if x.agenda == agenda %}
+
+
+        <label for = "hora">horario: </label>
+            <select name = "hora" id = "hora">
+                {%for elemento in hora%}
+                {%if elemento == x.hora %}
+                <option value="{{elemento_id}}">{{elemento.hora_inicio}} hasta {{elemento.hora_fin}}</option>
+
+                {% endif %}
+                {% endfor %}
+            </select>
+            <button type="button" class="btn btn-primary">
+                Seleccionar
+            </button>
+        {% endif %}
+        {% endfor %}
+        {% endfor %}
+        </p>
+        </div>
+    </div>
+</main>
+{% endblock %}
