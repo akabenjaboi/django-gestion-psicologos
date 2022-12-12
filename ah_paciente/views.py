@@ -2,7 +2,7 @@ from django.shortcuts import render
 from registar.models import Psicologo
 from agenda.models import Agenda, Hora, Agenda_hora
 from paciente_info.models import Paciente
-from .models import Ah_pac
+
 # Create your views here.
 
 
