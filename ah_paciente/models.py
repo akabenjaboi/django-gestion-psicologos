@@ -7,9 +7,8 @@ from registar.models import Psicologo
 class Ah_pac(models.Model):
     paciente = models.ForeignKey(Paciente, on_delete = models.CASCADE, null = True)
     reservada = models.BooleanField(default=False)
-    hora_reserva = models.DateTimeField(null=True)
     confirmada = models.BooleanField(default=False)
-    hora_confirma = models.DateTimeField(null=True)
+    
     online = models.BooleanField(default=False)
     link = models.CharField(max_length=800)
     valoracion = models.IntegerField(null = True)
